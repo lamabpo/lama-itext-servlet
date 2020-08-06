@@ -1,0 +1,18 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description xmlns:LTUd="http://archyvai.lt/pdf-ltud/2013/metadata/" xmlns:LTUdEnt="http://archyvai.lt/pdf-ltud/2013/metadata/Entity/" rdf:about="">
+      <LTUd:standardVersion>PDF-LT-V1.0</LTUd:standardVersion>
+      <LTUd:authors>
+        <rdf:Seq>
+          <rdf:li rdf:parseType="Resource">
+            <LTUdEnt:individual>%s</LTUdEnt:individual>
+            <LTUdEnt:name>%s</LTUdEnt:name>
+            <LTUdEnt:code>%s</LTUdEnt:code>
+            <LTUdEnt:address>%s</LTUdEnt:address>
+            <LTUdEnt:eMail>%s</LTUdEnt:eMail>
+          </rdf:li>
+        </rdf:Seq>
+      </LTUd:authors>
+    </rdf:Description>
+  </rdf:RDF>
+</x:xmpmeta>

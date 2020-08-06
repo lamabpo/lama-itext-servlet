@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>html2pdf/iText7 Servlet test</title>
+  </head>
+  <body>
+    <div>HTML-&gt;PDF</div>
+    <form method="POST" action="HTML2PDFServlet" enctype="multipart/form-data">
+        html <input type="file" name="html"><input type="hidden" name="test" value="true"><br/>
+      <input type="submit" value="Submit">
+    </form>
+    <div>HTML POST-&gt;PDF</div>
+    <form method="POST" action="HTML2PDFServlet">
+      html<input type="hidden" name="test" value="true"><br/>
+      <textarea name="html" rows="10" cols="160"></textarea><br/>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

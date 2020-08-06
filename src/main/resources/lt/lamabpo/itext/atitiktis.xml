@@ -1,0 +1,16 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/">
+    <rdf:RDF xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        <rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpidq="http://ns.adobe.com/xmp/identifier/qual/1.0/">
+      <xmp:Identifier>
+        <rdf:Bag>
+          <rdf:li>
+            <rdf:Description>
+              <rdf:value>A</rdf:value>
+              <xmpidq:Scheme>http://archyvai.lt/pdf-ltud/2013/level/</xmpidq:Scheme>
+            </rdf:Description>
+          </rdf:li>
+        </rdf:Bag>
+      </xmp:Identifier>
+    </rdf:Description>
+    </rdf:RDF>
+</x:xmpmeta>
