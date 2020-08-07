@@ -193,10 +193,10 @@ public class HTML2PDFServlet extends HttpServlet {
                     mokIdInfoValue = request.getParameter("mokIdInfoValue");
                 }
             }
-            getServletContext().log(fontsDirectory==null?"null":fontsDirectory);
-            getServletContext().log("test="+test);
-            getServletContext().log("html.length()="+(html==null?0:html.length()));
-            getServletContext().log(html==null?"null":html);
+            //getServletContext().log(fontsDirectory==null?"null":fontsDirectory);
+            //getServletContext().log("test="+test);
+            //getServletContext().log("html.length()="+(html==null?0:html.length()));
+            //getServletContext().log(html==null?"null":html);
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             WriterProperties writerProperties = new WriterProperties();
             writerProperties.setFullCompressionMode(true);
