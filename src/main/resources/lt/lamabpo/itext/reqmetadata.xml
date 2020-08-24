@@ -1,0 +1,206 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.1.0-jc003">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/" rdf:about="">
+      <pdfaid:part>2</pdfaid:part>
+      <pdfaid:conformance>B</pdfaid:conformance>
+    </rdf:Description>
+    <rdf:Description rdf:about="" xmlns:pdfaExtension="http://www.aiim.org/pdfa/ns/extension/" xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#" xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#" xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#" xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#">
+      <pdfaExtension:schemas>
+        <rdf:Bag>
+          <rdf:li rdf:parseType="Resource">
+            <pdfaSchema:schema>PDF-LT-V1.0 elektroninio dokumento metaduomenų plėtinio schema</pdfaSchema:schema>
+            <pdfaSchema:namespaceURI>http://archyvai.lt/pdf-ltud/2013/metadata/</pdfaSchema:namespaceURI>
+            <pdfaSchema:prefix>LTUd</pdfaSchema:prefix>
+            <pdfaSchema:property>
+              <rdf:Seq>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>standardVersion</pdfaProperty:name>
+                  <pdfaProperty:valueType>closed Choice of Text</pdfaProperty:valueType>
+                  <pdfaProperty:category>internal</pdfaProperty:category>
+                  <pdfaProperty:description>Elektroninio dokumento specifikacijos identifikatorius (pvz., PDF-LT-V1.0)</pdfaProperty:description>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>authors</pdfaProperty:name>
+                  <pdfaProperty:valueType>seq Entity</pdfaProperty:valueType>
+                  <pdfaProperty:category>external</pdfaProperty:category>
+                  <pdfaProperty:description>Dokumento sudarytojas (-ai)</pdfaProperty:description>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>recipients</pdfaProperty:name>
+                  <pdfaProperty:valueType>seq Entity</pdfaProperty:valueType>
+                  <pdfaProperty:category>external</pdfaProperty:category>
+                  <pdfaProperty:description>Dokumento adresatas (-ai)</pdfaProperty:description>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>instanceIdentifier</pdfaProperty:name>
+                  <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+                  <pdfaProperty:category>external</pdfaProperty:category>
+                  <pdfaProperty:description>Dokumento egzemplioriaus identifikatorius</pdfaProperty:description>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>originalRegistrations</pdfaProperty:name>
+                  <pdfaProperty:valueType>seq Registration</pdfaProperty:valueType>
+                  <pdfaProperty:category>external</pdfaProperty:category>
+                  <pdfaProperty:description>Originalaus dokumento registracija (-os) kopijoje</pdfaProperty:description>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>originalReceptions</pdfaProperty:name>
+                  <pdfaProperty:valueType>seq Registration</pdfaProperty:valueType>
+                  <pdfaProperty:category>external</pdfaProperty:category>
+                  <pdfaProperty:description>Gauto originalaus dokumento registracija (-os) kopijoje</pdfaProperty:description>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>originalReceivers</pdfaProperty:name>
+                  <pdfaProperty:valueType>seq Entity</pdfaProperty:valueType>
+                  <pdfaProperty:category>external</pdfaProperty:category>
+                  <pdfaProperty:description>Originalaus dokumento gavėjas (-ai) kopijoje</pdfaProperty:description>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>registration</pdfaProperty:name>
+                  <pdfaProperty:valueType>Registration</pdfaProperty:valueType>
+                  <pdfaProperty:category>external</pdfaProperty:category>
+                  <pdfaProperty:description>Sudaryto dokumento registracija</pdfaProperty:description>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>reception</pdfaProperty:name>
+                  <pdfaProperty:valueType>Registration</pdfaProperty:valueType>
+                  <pdfaProperty:category>external</pdfaProperty:category>
+                  <pdfaProperty:description>Gauto dokumento registracija</pdfaProperty:description>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaProperty:name>receiver</pdfaProperty:name>
+                  <pdfaProperty:valueType>Entity</pdfaProperty:valueType>
+                  <pdfaProperty:category>external</pdfaProperty:category>
+                  <pdfaProperty:description>Dokumento gavėjas</pdfaProperty:description>
+                </rdf:li>
+              </rdf:Seq>
+            </pdfaSchema:property>
+            <pdfaSchema:valueType>
+              <rdf:Seq>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaType:description>Asmuo (sudarytojas, adresatas, gavÄ—jas)</pdfaType:description>
+                  <pdfaType:namespaceURI>http://archyvai.lt/pdf-ltud/2013/metadata/Entity/</pdfaType:namespaceURI>
+                  <pdfaType:prefix>LTUdEnt</pdfaType:prefix>
+                  <pdfaType:type>Entity</pdfaType:type>
+                  <pdfaType:field>
+                    <rdf:Seq>
+                      <rdf:li rdf:parseType="Resource">
+                        <pdfaField:name>individual</pdfaField:name>
+                        <pdfaField:valueType>Boolean</pdfaField:valueType>
+                        <pdfaField:description>Požymis: fizinis (taip) ar juridinis (ne) asmuo</pdfaField:description>
+                      </rdf:li>
+                      <rdf:li rdf:parseType="Resource">
+                        <pdfaField:name>name</pdfaField:name>
+                        <pdfaField:valueType>Text</pdfaField:valueType>
+                        <pdfaField:description>Juridinio asmens pavadinimas arba fizinio asmens vardas ir pavardė</pdfaField:description>
+                      </rdf:li>
+                      <rdf:li rdf:parseType="Resource">
+                        <pdfaField:name>code</pdfaField:name>
+                        <pdfaField:valueType>Text</pdfaField:valueType>
+                        <pdfaField:description>Juridinio ar fizinio asmens kodas</pdfaField:description>
+                      </rdf:li>
+                      <rdf:li rdf:parseType="Resource">
+                        <pdfaField:name>address</pdfaField:name>
+                        <pdfaField:valueType>Text</pdfaField:valueType>
+                        <pdfaField:description>Adresas</pdfaField:description>
+                      </rdf:li>
+                      <rdf:li rdf:parseType="Resource">
+                        <pdfaField:name>eMail</pdfaField:name>
+                        <pdfaField:valueType>Text</pdfaField:valueType>
+                        <pdfaField:description>El. pašto adresas</pdfaField:description>
+                      </rdf:li>
+                    </rdf:Seq>
+                  </pdfaType:field>
+                </rdf:li>
+                <rdf:li rdf:parseType="Resource">
+                  <pdfaType:description>Sudaryto ar gauto dokumento registracija</pdfaType:description>
+                  <pdfaType:namespaceURI>http://archyvai.lt/pdf-ltud/2013/metadata/Registration/</pdfaType:namespaceURI>
+                  <pdfaType:prefix>LTUdReg</pdfaType:prefix>
+                  <pdfaType:type>Registration</pdfaType:type>
+                  <pdfaType:field>
+                    <rdf:Seq>
+                      <rdf:li rdf:parseType="Resource">
+                        <pdfaField:name>date</pdfaField:name>
+                        <pdfaField:valueType>Date</pdfaField:valueType>
+                        <pdfaField:description>Registravimo data</pdfaField:description>
+                      </rdf:li>
+                      <rdf:li rdf:parseType="Resource">
+                        <pdfaField:name>number</pdfaField:name>
+                        <pdfaField:valueType>Text</pdfaField:valueType>
+                        <pdfaField:description>Registracijos numeris</pdfaField:description>
+                      </rdf:li>
+                      <rdf:li rdf:parseType="Resource">
+                        <pdfaField:name>code</pdfaField:name>
+                        <pdfaField:valueType>Text</pdfaField:valueType>
+                        <pdfaField:description>Juridinio ar fizinio asmens kodas</pdfaField:description>
+                      </rdf:li>
+                    </rdf:Seq>
+                  </pdfaType:field>
+                </rdf:li>
+              </rdf:Seq>
+            </pdfaSchema:valueType>
+          </rdf:li>
+        </rdf:Bag>
+      </pdfaExtension:schemas>
+    </rdf:Description>
+    <rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpidq="http://ns.adobe.com/xmp/Identifier/qual/1.0/" rdf:about="">
+      <xmp:Identifier>
+        <rdf:Bag>
+          <rdf:li>
+            <rdf:Description>
+              <rdf:value>B</rdf:value>
+              <xmpidq:Scheme>http://archyvai.lt/pdf-ltud/2013/level/</xmpidq:Scheme>
+            </rdf:Description>
+          </rdf:li>
+        </rdf:Bag>
+      </xmp:Identifier>
+    </rdf:Description>
+    <rdf:Description xmlns:LTUd="http://archyvai.lt/pdf-ltud/2013/metadata/" xmlns:LTUdEnt="http://archyvai.lt/pdf-ltud/2013/metadata/Entity/" xmlns:LTUdReg="http://archyvai.lt/pdf-ltud/2013/metadata/Registration/" rdf:about="">
+      <LTUd:standardVersion>PDF-LT-V1.0</LTUd:standardVersion>
+      <LTUd:authors>
+        <rdf:Seq>
+          <rdf:li rdf:parseType="Resource">
+            <LTUdEnt:individual>%s</LTUdEnt:individual>
+            <LTUdEnt:name>%s</LTUdEnt:name>
+            <LTUdEnt:code>%s</LTUdEnt:code>
+            <LTUdEnt:address>%s</LTUdEnt:address>
+            <LTUdEnt:eMail>%s</LTUdEnt:eMail>
+          </rdf:li>
+        </rdf:Seq>
+      </LTUd:authors>
+      <LTUd:recipients>
+          <rdf:Seq>
+          <rdf:li rdf:parseType="Resource">
+            <LTUdEnt:individual>%s</LTUdEnt:individual>
+            <LTUdEnt:name>%s</LTUdEnt:name>
+            <LTUdEnt:code>%s</LTUdEnt:code>
+            <LTUdEnt:address>%s</LTUdEnt:address>
+            <LTUdEnt:eMail>%s</LTUdEnt:eMail>
+          </rdf:li>
+        </rdf:Seq>
+      </LTUd:recipients>
+    </rdf:Description>
+    <rdf:Description xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:about="">
+      <dc:language>
+        <rdf:Bag>
+          <rdf:li>%s</rdf:li>
+        </rdf:Bag>
+      </dc:language>
+      <dc:title>
+        <rdf:Alt>
+          <rdf:li xml:lang="x-default">%s</rdf:li>
+          <rdf:li xml:lang="lt-LT">%s</rdf:li>
+          <rdf:li xml:lang="en-UK">%s</rdf:li>
+        </rdf:Alt>
+      </dc:title>
+      <dc:creator>
+        <rdf:Seq>
+          <rdf:li>%s</rdf:li>
+        </rdf:Seq>
+      </dc:creator>
+    </rdf:Description>
+    <rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/" rdf:about="">
+      <xmp:CreatorTool>%s</xmp:CreatorTool>
+    </rdf:Description>
+  </rdf:RDF>
+</x:xmpmeta>
