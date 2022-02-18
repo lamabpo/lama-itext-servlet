@@ -18,6 +18,22 @@
  */
 package lt.lamabpo.itext;
 
+import static java.lang.Math.toIntExact;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.html2pdf.resolver.font.DefaultFontProvider;
@@ -38,17 +54,8 @@ import com.itextpdf.kernel.xmp.XMPMetaFactory;
 import com.itextpdf.kernel.xmp.XMPSchemaRegistry;
 import com.itextpdf.layout.font.FontProvider;
 import com.itextpdf.pdfa.PdfADocument;
-import java.io.IOException;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.io.output.ByteArrayOutputStream;
 
 /**
  *
@@ -80,7 +87,6 @@ public class HTMLPr2PDFServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
             String test = null;
             String docLanguage;
             String docTitleLT;
@@ -97,9 +103,9 @@ public class HTMLPr2PDFServlet extends HttpServlet {
             String studIdInfoValue;
             String html;
             if(request.getHeader("content-type").startsWith("multipart/form-data")){
-                html = IOUtils.toString(request.getPart("html").getInputStream(), "UTF-8");
-                try{
-                    test = IOUtils.toString(request.getPart("test").getInputStream(), "UTF-8");
+                html = partToString(request.getPart("html"), null, "UTF-8");
+                test = partToString(request.getPart("test"), null, "UTF-8");
+                if(test!=null&&test.length()>0){
                     docLanguage = "lt-LT";
                     docTitleLT = "Studijų sutarties nutraukimo prašymas";
                     docTitleEN = "Study Agreement Termination Request";
@@ -113,20 +119,20 @@ public class HTMLPr2PDFServlet extends HttpServlet {
                     studEmail = "vardenis.pavardenis@gmail.com";
                     studIdInfoTitle = "Mokinio identifikavimo tranzakcija";
                     studIdInfoValue = "01234567-89ab-cdef-0123-456789abcdef";
-                }catch(IOException | NullPointerException e){
-                    docLanguage = IOUtils.toString(request.getPart("docLanguage").getInputStream(), "UTF-8");
-                    docTitleLT = IOUtils.toString(request.getPart("docTitleLT").getInputStream(), "UTF-8");
-                    docTitleEN = IOUtils.toString(request.getPart("docTitleEN").getInputStream(), "UTF-8");
-                    instTitle = IOUtils.toString(request.getPart("instTitle").getInputStream(), "UTF-8");
-                    instCode = IOUtils.toString(request.getPart("instCode").getInputStream(), "UTF-8");
-                    instAddress = IOUtils.toString(request.getPart("instAddress").getInputStream(), "UTF-8");
-                    instEmail = IOUtils.toString(request.getPart("instEmail").getInputStream(), "UTF-8");
-                    studName = IOUtils.toString(request.getPart("studName").getInputStream(), "UTF-8");
-                    studAK = IOUtils.toString(request.getPart("studAK").getInputStream(), "UTF-8");
-                    studAddress = IOUtils.toString(request.getPart("studAddress").getInputStream(), "UTF-8");
-                    studEmail = IOUtils.toString(request.getPart("studEmail").getInputStream(), "UTF-8");
-                    studIdInfoTitle = IOUtils.toString(request.getPart("studIdInfoTitle").getInputStream(), "UTF-8");
-                    studIdInfoValue = IOUtils.toString(request.getPart("studIdInfoValue").getInputStream(), "UTF-8");
+                }else{
+                    docLanguage = partToString(request.getPart("docLanguage"), null, "UTF-8");
+                    docTitleLT = partToString(request.getPart("docTitleLT"), null, "UTF-8");
+                    docTitleEN = partToString(request.getPart("docTitleEN"), null, "UTF-8");
+                    instTitle = partToString(request.getPart("instTitle"), null, "UTF-8");
+                    instCode = partToString(request.getPart("instCode"), null, "UTF-8");
+                    instAddress = partToString(request.getPart("instAddress"), null, "UTF-8");
+                    instEmail = partToString(request.getPart("instEmail"), null, "UTF-8");
+                    studName = partToString(request.getPart("studName"), null, "UTF-8");
+                    studAK = partToString(request.getPart("studAK"), null, "UTF-8");
+                    studAddress = partToString(request.getPart("studAddress"), null, "UTF-8");
+                    studEmail = partToString(request.getPart("studEmail"), null, "UTF-8");
+                    studIdInfoTitle = partToString(request.getPart("studIdInfoTitle"), null, "UTF-8");
+                    studIdInfoValue = partToString(request.getPart("studIdInfoValue"), null, "UTF-8");
                 }
             }else{
                 html = request.getParameter("html");
@@ -161,11 +167,14 @@ public class HTMLPr2PDFServlet extends HttpServlet {
                     studIdInfoValue = request.getParameter("studIdInfoValue");
                 }
             }
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
+        try(InputStream icm=HTMLPr2PDFServlet.class.getResourceAsStream("sRGB_CS_profile.icm");
+                InputStream xmpTmplt=HTMLPr2PDFServlet.class.getResourceAsStream("reqmetadata.xml");
+                ServletOutputStream sos = response.getOutputStream();
+                ByteArrayOutputStream os = new ByteArrayOutputStream()) {            
             WriterProperties writerProperties = new WriterProperties();
             writerProperties.setFullCompressionMode(true);
             PdfWriter pdfWriter = new PdfWriter(os,writerProperties);
-            PdfOutputIntent oi=new PdfOutputIntent("Custom","","http://www.color.org","sRGB IEC61966-2.1",HTMLPr2PDFServlet.class.getResourceAsStream("sRGB_CS_profile.icm"));
+            PdfOutputIntent oi=new PdfOutputIntent("Custom","","http://www.color.org","sRGB IEC61966-2.1",icm);
             PdfADocument pdfDoc = new PdfADocument(pdfWriter,PdfAConformanceLevel.PDF_A_2B,oi);
             pdfDoc.setDefaultPageSize(PageSize.A4);
             PdfCatalog cat = pdfDoc.getCatalog();
@@ -187,7 +196,7 @@ public class HTMLPr2PDFServlet extends HttpServlet {
             XMPSchemaRegistry xsr=XMPMetaFactory.getSchemaRegistry();
             xsr.registerNamespace(NS_LTUd,"LTUd");
             xsr.registerNamespace(NS_LTUdEnt,"LTUdEnt");
-            XMPMeta xmpM = XMPMetaFactory.parseFromString(String.format(IOUtils.toString(HTMLPr2PDFServlet.class.getResourceAsStream("reqmetadata.xml"),"UTF-8"),
+            XMPMeta xmpM = XMPMetaFactory.parseFromString(String.format(IOUtils.toString(xmpTmplt,"UTF-8"),
                     "True",//authors/LTUdEnt:individual
                     studName,//authors/LTUdEnt:name
                     studAK,//authors/LTUdEnt:code
@@ -213,10 +222,29 @@ public class HTMLPr2PDFServlet extends HttpServlet {
             HtmlConverter.convertToPdf(html, pdfDoc, converterProperties);
             response.setContentType("application/pdf");
             response.setContentLength(os.size());
-            os.writeTo(response.getOutputStream());
-            response.getOutputStream().flush();
+            os.writeTo(sos);
+            sos.flush();
         } catch (XMPException ex) {
             throw new ServletException(ex);
+        }
+    }
+
+    /**
+     * Reads multipart/form-data part to string
+     * 
+     * @param input       one part of multipart/form-data
+     * @param charsetName source charset of binary part data
+     * @return
+     * @throws IOException
+     */
+    public static String partToString(final Part input, final String defaultVal, final String charsetName)
+            throws IOException {
+        try (InputStream inputStream = input.getInputStream()) {
+            byte[] buffer = new byte[toIntExact(input.getSize())];
+            inputStream.read(buffer);
+            return new String(buffer,charsetName);
+        } catch (NullPointerException e) {
+            return defaultVal;
         }
     }
 }
