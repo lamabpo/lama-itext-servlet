@@ -62,7 +62,7 @@ import org.apache.commons.io.IOUtils;
  * @author Giedrius Deveikis @ LAMA BPO
  */
 @WebServlet(name="HTMLPr2PDFServlet", urlPatterns={"/HTMLPr2PDFServlet"})
-@MultipartConfig
+@MultipartConfig(fileSizeThreshold=1024*1024)
 public class HTMLPr2PDFServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final String AGPL_REPOSITORY_URL = "https://github.com/lamabpo/lama-itext-servlet";
